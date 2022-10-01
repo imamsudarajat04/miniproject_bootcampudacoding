@@ -12,7 +12,7 @@ class LoginController extends Controller
     public function login() {
 
         if(Auth::user()) {
-            return "dashboard";
+            return redirect()->route('dashboard.index');
         }
             
         return view('auth.login');
@@ -20,7 +20,7 @@ class LoginController extends Controller
 
     public function todoLogin(Request $request) {
         if(Auth::attempt($request->only('email', 'password'))) {
-            return "login berhasil";
+            return redirect()->route('dashboard.index');
         }
 
         return Redirect::back()->with('msg', 'Your Email or Password is not valid!');
