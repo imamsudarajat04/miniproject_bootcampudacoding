@@ -25,7 +25,7 @@
   @include('layouts.header')
   <!-- ***** Header Area End ***** -->
   
-  <div id="modal" class="popupContainer" style="display:none;">
+{{-- <div id="modal" class="popupContainer" style="display:none;">
     <div class="popupHeader">
         <span class="header_title">Login</span>
         <span class="modal_close"><i class="fa fa-times"></i></span>
@@ -60,22 +60,23 @@
         <!-- Username & Password Login form -->
         <div class="user_login">
             <form>
-                <label>Email / Username</label>
-                <input type="text" />
+                <label>Email</label>
+                <input type="text" name="email" placeholder="Insert Your Email.." required />
                 <br />
 
                 <label>Password</label>
-                <input type="password" />
+                <input type="password" name="password" placeholder="Insert Your Password.." required />
                 <br />
 
                 <div class="checkbox">
-                    <input id="remember" type="checkbox" />
+                    <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }} />
                     <label for="remember">Remember me on this computer</label>
                 </div>
 
                 <div class="action_btns">
                     <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
                     <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                    <div class="one_half last"><button class="btn btn_red mr-2" type="submit">Login</button></div>
                 </div>
             </form>
 
@@ -109,7 +110,7 @@
             </form>
         </div>
     </section>
-</div>
+</div> --}}
 
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
