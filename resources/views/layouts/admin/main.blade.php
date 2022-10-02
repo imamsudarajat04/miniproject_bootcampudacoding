@@ -3,6 +3,14 @@
 
 <head>
   @include('includes.admin.style')
+
+  @push('addonStyle')
+      <style>
+        .Landingpage {
+          padding-left: 10px;
+        }
+      </style>
+  @endpush
 </head>
 
 <body>
@@ -21,14 +29,14 @@
 
     <div class="pagetitle">
       <h1>@yield('pageTitle')</h1>
-      <nav>
+      <nav style="--bs-breadcrumb-divider: '>';">
         <ol class="breadcrumb">
             @yield('breadcrumb')
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
+    <section class="section dashboard mb-5">
       <div class="row">
         @yield('content')
       </div>

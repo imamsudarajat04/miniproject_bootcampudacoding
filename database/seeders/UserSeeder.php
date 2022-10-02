@@ -15,9 +15,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         \App\Models\User::create([
-            'name'      => 'Imam Sudarajats',
-            'email'     => 'imams04@gmail.com',
-            'password'  => Hash::make('imams04'),
+            'name'      => 'Imam Sudarajat',
+            'email'     => 'kazeonets04@gmail.com',
+            'password'  => Hash::make('12345'),
+            'phone'     => '083183462191',
+            'address'   => 'Jl. Ganet Block B1 No. 09',
+            'role'      => 'admin'
         ]);
     }
 }

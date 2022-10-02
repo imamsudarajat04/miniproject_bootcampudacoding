@@ -19,7 +19,10 @@ class LoginController extends Controller
     }
 
     public function todoLogin(Request $request) {
-        if(Auth::attempt($request->only('email', 'password'))) {
+
+        $remember_me = $request->has('remember') ? true : false;
+
+        if(Auth::attempt($request->only('email', 'password'), $remember_me)) {
             return redirect()->route('dashboard.index');
         }
 
@@ -28,6 +31,7 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect()->route('login')->with('msg', 'Successfuly Logout!');
+        // return redirect()->route('login')->with('msg', 'Successfuly Logout!');
+        return redirect('/')->with('msg', 'Successfuly Logout!');
     }
 }

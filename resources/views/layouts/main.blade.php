@@ -8,6 +8,11 @@
 
 <body>
 
+  <!-- Alert -->
+  @if ($message = Session::get('msg'))
+  <script>window.alert("{{ $message }}")</script>
+  @endif
+
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
