@@ -27,6 +27,8 @@
 
   <main id="main" class="main">
 
+    @include('sweetalert::alert')
+    
     <div class="pagetitle">
       <h1>@yield('pageTitle')</h1>
       <nav style="--bs-breadcrumb-divider: '>';">

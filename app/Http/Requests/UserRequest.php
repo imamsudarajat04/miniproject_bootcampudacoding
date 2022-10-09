@@ -24,14 +24,28 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'             => 'required|regex:/^[\pL\s\-]+$/u',
-            'email'            => 'required|email|unique:users,email',
-            'password'         => 'required|same:confirm_password',
-            'confirm_password' => 'required',
-            'phone'            => 'required',
-            'address'          => 'required',
-            'role'             => 'required',
-        ];
+        if(in_array($this->method(), ['PUT', 'PATCH'])) {
+            $return = [
+                'name'             => 'required|regex:/^[\pL\s\-]+$/u',
+                'email'            => 'required|email|unique:users,email,' . Auth::user()->id,
+                'password'         => 'required|same:confirm_password',
+                'confirm_password' => 'required',
+                'phone'            => 'required',
+                'address'          => 'required',
+                'role'             => 'required',
+            ];
+        }else{
+            $return = [
+                'name'             => 'required|regex:/^[\pL\s\-]+$/u',
+                'email'            => 'required|email|unique:users,email',
+                'password'         => 'required|same:confirm_password',
+                'confirm_password' => 'required',
+                'phone'            => 'required',
+                'address'          => 'required',
+                'role'             => 'required',
+            ];
+        }
+
+        return $return;
     }
 }
